@@ -10,7 +10,7 @@ export default function signin({providers}) {
             {Object.values(providers).map(providers =>(
                 <div key={providers.name} className="flex flex-col items-center">
                     <img
-                        className='object-cover'
+                        className='w-52 object-cover'
                         src="https://play-lh.googleusercontent.com/1-hPxafOxdYpYZEOKzNIkSP43HXCNftVJVttoo4ucl7rsMASXW3Xr6GlXURCubE1tA=w3840-h2160-rw"
                         alt="Google logo"
                     />
