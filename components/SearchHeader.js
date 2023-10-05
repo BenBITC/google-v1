@@ -3,6 +3,7 @@ import React, { useRef } from 'react'
 import { useRouter } from 'next/router'
 import {SearchIcon, MicrophoneIcon, XIcon} from '@heroicons/react/solid'
 import User from './User';
+import SearchHeaderOptions from './SearchHeaderOptions';
 
 export default function SearchHeader() {
     const router = useRouter();
@@ -12,7 +13,7 @@ export default function SearchHeader() {
         event.preventDefault();
         const term = searchInputRef.current.value.trim();
         if(!term) return
-        router.push(`/search?term=${term}`)
+        router.push(`/search?term=${term}&searchType=`)
     }
 
     return (
@@ -43,6 +44,7 @@ export default function SearchHeader() {
                 </form>
                 <User className="ml-auto"/>
             </div>
+            <SearchHeaderOptions/>
         </header>
     )
 }
