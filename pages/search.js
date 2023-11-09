@@ -6,7 +6,7 @@ import {useRouter} from "next/router"
 import ImageResults from "../components/ImageResults";
 
 export default function search({results}) {
-  console.log(results)
+  // console.log(results)
   const router = useRouter()
 
   // Check if router.query.term is defined before using it in the page title
