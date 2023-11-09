@@ -7,6 +7,7 @@ export default function signin({providers}) {
     <div>
         <Header/>
         <div className='mt-10'>
+            console.log(providers)
             {providers ? (
                 Object.values(providers).map((provider) => (
                     <div key={providers.name} className="flex flex-col items-center">
