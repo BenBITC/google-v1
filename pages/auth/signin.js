@@ -29,8 +29,16 @@ export default function signin({providers}) {
 }
 
 export async function getServerSideProps() {
-    const providers = await getProviders();
-    return {
-        props: {providers},
-    };
-}
+    try {
+      const providers = await getProviders();
+      console.log('Providers:', providers);
+      return {
+        props: { providers },
+      };
+    } catch (error) {
+      console.error('Error fetching providers:', error);
+      return {
+        props: { providers: null }, // Handle the error gracefully
+      };
+    }
+  }
