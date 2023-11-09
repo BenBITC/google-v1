@@ -7,17 +7,22 @@ export default function signin({providers}) {
     <div>
         <Header/>
         <div className='mt-10'>
-            {Object.values(providers).map(providers =>(
-                <div key={providers.name} className="flex flex-col items-center">
-                    <img
-                        className='w-52 object-cover'
-                        src="https://play-lh.googleusercontent.com/1-hPxafOxdYpYZEOKzNIkSP43HXCNftVJVttoo4ucl7rsMASXW3Xr6GlXURCubE1tA=w3840-h2160-rw"
-                        alt="Google logo"
-                    />
-                    <p className='text-sm italic my-10 text-center'>This website is created for learning purposes</p>
-                    <button className="bg-red-400 rounded-lg text-white p-3 hover:shadow-md hover:bg-red-500" onClick={()=>signIn(providers.id, {callbackUrl : "/"})}>Sign in with {providers.name}</button>
-                </div>
-            ))}
+            {providers ? (
+                Object.values(providers).map((provider) => (
+                    <div key={providers.name} className="flex flex-col items-center">
+                        <img
+                            className='w-52 object-cover'
+                            src="https://play-lh.googleusercontent.com/1-hPxafOxdYpYZEOKzNIkSP43HXCNftVJVttoo4ucl7rsMASXW3Xr6GlXURCubE1tA=w3840-h2160-rw"
+                            alt="Google logo"
+                        />
+                        <p className='text-sm italic my-10 text-center'>This website is created for learning purposes</p>
+                        <button className="bg-red-400 rounded-lg text-white p-3 hover:shadow-md hover:bg-red-500" onClick={()=>signIn(providers.id, {callbackUrl : "/"})}>Sign in with {providers.name}</button>
+                    </div>
+            ))
+            ) : (
+                <p>Loading providers...</p>
+            )
+            }
         </div>
     </div>
   )
