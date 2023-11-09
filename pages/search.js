@@ -8,10 +8,15 @@ import ImageResults from "../components/ImageResults";
 export default function search({results}) {
   console.log(results)
   const router = useRouter()
+
+  // Check if router.query.term is defined before using it in the page title
+  const goigleTitle = router.query.searchType ? `Goigle Imidges` : "Goigle Sorch";
+  const pageTitle = router.query.term ? `${router.query.term} - ${goigleTitle}` : `${goigleTitle}`;
+
   return (
     <div>
         <Head>
-            <title>{router.query.term} - Goigle Sorch</title>
+            <title>{pageTitle}</title>
         </Head>
 
         {/* Search Header */}
